@@ -1,26 +1,6 @@
 package com.Test1.Martha;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import javax.swing.ComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JPasswordField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 public class Registration extends JFrame {
 
@@ -96,10 +76,9 @@ public class Registration extends JFrame {
 		contentPane.add(lblYear);
 		
 		
-		JComboBox YearCombo = new JComboBox();
+		final JComboBox YearCombo = new JComboBox();
 		YearCombo.setModel(new DefaultComboBoxModel(new String[] {"1991", "1992", "1993", "1994", "1995", "1996"}));
-		String [] combo=new String[]{"1991","1992","1993","1994","1995","1996"};
-		final String Year=combo[YearCombo.getSelectedIndex()];
+		
 		YearCombo.setBounds(131, 181, 86, 20);
 		contentPane.add(YearCombo);
 		
@@ -110,12 +89,13 @@ public class Registration extends JFrame {
 				 getDBInstance();
 				   Connection con= getConnection();
 				  
-				String Name,Pwd,Course,Phone;
+				String Name,Pwd,Course,Phone,Year;
 				
 					Name=textName.getText().toString();
 					Pwd=textPwd.getText().toString();
 				Course=textCourse.getText().toString();
-				Phone=textPhone.getText().toString(); 
+				Phone=textPhone.getText().toString();
+				Year=YearCombo.getSelectedItem().toString();
 			
 				
 				
